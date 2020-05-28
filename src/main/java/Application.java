@@ -33,9 +33,9 @@ public class Application {
 
         System.out.println("What is the sales commission?");
         userDoubleInput = scanner.nextDouble();
-        System.out.println("Did they make hazard pay?");
+        System.out.println("Did they make hazard pay? Please answer true or false");
         hazardInput = scanner.nextBoolean();
-        System.out.println("Are we charging for Insurance this cycle?");
+        System.out.println("Are we charging for Insurance this cycle? Please answer true of false");
         insuranceInput = scanner.nextBoolean();
         roster.setChargeInsurance(insuranceInput);
         for(PayrollEmployee employee : roster.getEmployeeList()){

@@ -7,10 +7,21 @@ public class PayrollHourly extends PayrollEmployee {
     int hoursWorked;
     double hourlyRate = 20.00;
 
+
+    public int getHoursWorked() {
+        return hoursWorked;
+    }
+
+    public double getHourlyRate() {
+        return hourlyRate;
+    }
+
     public void setHoursWorked(int hours){
         hoursWorked = hours;
     }
-    public void calculateGross(){
-        setPaycheckTotal(hourlyRate * hoursWorked);
+
+    @Override
+    public void setPaycheckTotal(){
+        payCheckTotal = hourlyRate * hoursWorked;
     }
 }

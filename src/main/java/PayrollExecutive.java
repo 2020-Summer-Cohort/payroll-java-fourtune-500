@@ -1,9 +1,13 @@
-public class PayrollExecutive extends PayrollEmployee implements Insurance, ReceiveBonus, Salary {
+public class PayrollExecutive extends PayrollEmployee implements Insurance, ReceiveBonus {
 
     double payPeriodEarnings = 20000.00;
 
     public PayrollExecutive(int employeeId, String firstName, String lastName) {
         super(employeeId, firstName, lastName);
+    }
+
+    public double getPayPeriodEarnings() {
+        return payPeriodEarnings;
     }
 
     @Override
@@ -16,7 +20,7 @@ public class PayrollExecutive extends PayrollEmployee implements Insurance, Rece
         payCheckTotal += bonus*3;
     }
     @Override
-    public double payPeriodEarnings() {
-        return payPeriodEarnings;
+    public void setPaycheckTotal() {
+        payCheckTotal += payPeriodEarnings;
     }
 }

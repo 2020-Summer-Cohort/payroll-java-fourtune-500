@@ -1,4 +1,4 @@
-public class PayrollEmployee {
+public abstract class PayrollEmployee {
 
     int employeeId;
     String firstName;
@@ -27,8 +27,6 @@ public class PayrollEmployee {
         return payCheckTotal;
     }
 
-    public void setPaycheckTotal(double paycheck){
-        payCheckTotal = paycheck;
+    public abstract void setPaycheckTotal();
 
-    }
 }

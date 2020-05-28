@@ -1,4 +1,4 @@
-public class PayrollDeveloper extends PayrollEmployee implements ReceiveBonus, Insurance, Salary{
+public class PayrollDeveloper extends PayrollEmployee implements ReceiveBonus, Insurance {
 
     double payPeriodEarnings = 9000;
 
@@ -12,9 +12,12 @@ public class PayrollDeveloper extends PayrollEmployee implements ReceiveBonus, I
     public void payInsurance(){
         payCheckTotal -= 80.00;
     }
-
-    @Override
-    public double payPeriodEarnings() {
+    public double getPayPeriodEarnings(){
         return payPeriodEarnings;
+    }
+    @Override
+    public void setPaycheckTotal() {
+
+        payCheckTotal += payPeriodEarnings;
     }
 }

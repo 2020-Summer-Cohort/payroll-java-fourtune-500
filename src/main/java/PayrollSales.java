@@ -1,4 +1,4 @@
-public class PayrollSales extends PayrollEmployee implements ReceiveBonus, Salary{
+public class PayrollSales extends PayrollEmployee implements ReceiveBonus {
 
     double salesCommission;
     double payPeriodEarnings = 3000;
@@ -12,17 +12,13 @@ public class PayrollSales extends PayrollEmployee implements ReceiveBonus, Salar
         salesCommission = sales;
     }
 
-    public double getPayCheckTotal() {
-        return super.getPayCheckTotal();
-    }
-
     @Override
     public void receiveBonus(double bonus){
         payCheckTotal += bonus;
     }
     @Override
-    public double payPeriodEarnings() {
-        return payPeriodEarnings;
+    public void setPaycheckTotal() {
+        payCheckTotal +=  payPeriodEarnings + salesCommission;
     }
 
 }

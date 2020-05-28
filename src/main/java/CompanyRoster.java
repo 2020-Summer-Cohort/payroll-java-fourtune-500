@@ -2,6 +2,8 @@ import java.util.ArrayList;
 
 public class CompanyRoster {
 
+    double bonusAmount;
+
     ArrayList<PayrollEmployee> companyRoster = new ArrayList<>();
     PayrollEmployee executive1 = new PayrollExecutive(1111, "Steve", "Jobs");
     PayrollEmployee developer1 = new PayrollDeveloper(2111, "Billy", "Gooooat");
@@ -21,22 +23,17 @@ public class CompanyRoster {
         companyRoster.add(hourly2);
 
     }
-    public void calculatePay(double bonus, double commission){
+    public void setBonusAmount(double bonus){
+        bonusAmount = bonus;
+    }
+    public void calculatePay(){
         for(PayrollEmployee employee : companyRoster){
+            employee.setPaycheckTotal();
             if(employee instanceof ReceiveBonus){
-                ((ReceiveBonus) employee).receiveBonus(bonus);
+                ((ReceiveBonus) employee).receiveBonus(bonusAmount);
             }
             if(employee instanceof Insurance){
                 ((Insurance) employee).payInsurance();
-            }
-            if (employee instanceof PayrollSales){
-                ((PayrollSales) employee).setSaleCommission(commission);
-            }
-            if (employee instanceof PayrollHourly){
-                ((PayrollHourly) employee).calculateGross();
-            }
-            if(employee instanceof Salary){
-                ((Salary) employee).payPeriodEarnings();
             }
         }
     }

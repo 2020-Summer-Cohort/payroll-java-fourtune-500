@@ -29,11 +29,15 @@ public class Application {
         int userInput;
         double userDoubleInput;
         boolean hazardInput;
+        boolean insuranceInput;
+
         System.out.println("What is the sales commission?");
         userDoubleInput = scanner.nextDouble();
         System.out.println("Did they make hazard pay?");
         hazardInput = scanner.nextBoolean();
-
+        System.out.println("Are we charging for Insurance this cycle?");
+        insuranceInput = scanner.nextBoolean();
+        roster.setChargeInsurance(insuranceInput);
         for(PayrollEmployee employee : roster.getEmployeeList()){
             if (employee instanceof PayrollHourly) {
                 System.out.println("How many hours did " + employee.getFirstName() + " work?");

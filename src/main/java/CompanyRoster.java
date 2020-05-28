@@ -4,6 +4,7 @@ import java.util.Collection;
 public class CompanyRoster {
 
     double bonusAmount;
+    boolean chargeInsurance;
 
     ArrayList<PayrollEmployee> companyRoster = new ArrayList<>();
     PayrollEmployee executive1 = new PayrollExecutive(1111, "Steve", "Jobs");
@@ -30,14 +31,19 @@ public class CompanyRoster {
     public void setBonusAmount(double bonus){
         bonusAmount = bonus;
     }
+    public void setChargeInsurance(boolean input){
+        chargeInsurance = input;
+    }
     public void calculatePay(){
         for(PayrollEmployee employee : companyRoster){
             employee.setPaycheckTotal();
             if(employee instanceof ReceiveBonus){
                 ((ReceiveBonus) employee).receiveBonus(bonusAmount);
             }
-            if(employee instanceof Insurance){
-                ((Insurance) employee).payInsurance();
+            if (chargeInsurance == true) {
+                if (employee instanceof Insurance) {
+                    ((Insurance) employee).payInsurance();
+                }
             }
         }
     }

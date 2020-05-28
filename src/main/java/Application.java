@@ -11,8 +11,6 @@ public class Application {
         obtainUserInput(roster, scanner);
         roster.calculatePay();
         printEmployeesPaycheck(roster);
-
-
     }
 
     public static void printEmployees(CompanyRoster roster) {
@@ -30,6 +28,8 @@ public class Application {
     public static void obtainUserInput(CompanyRoster roster, Scanner scanner) {
         int userInput;
         double userDoubleInput;
+        System.out.println("What is the sales commission?");
+        userDoubleInput = scanner.nextDouble();
         for(PayrollEmployee employee : roster.getEmployeeList()){
             if (employee instanceof PayrollHourly) {
                 System.out.println("How many hours did " + employee.getFirstName() + " work?");
@@ -37,18 +37,13 @@ public class Application {
                 scanner.nextLine();
                 ((PayrollHourly) employee).setHoursWorked(userInput);
             }
-        }
-        System.out.println("What was this years bonus?");
-        userDoubleInput = scanner.nextDouble();
-        roster.setBonusAmount(userDoubleInput);
-
-        System.out.println("What is the sales commission?");
-        userDoubleInput = scanner.nextDouble();
-        for(PayrollEmployee employee : roster.getEmployeeList()){
             if(employee instanceof PayrollSales){
                 ((PayrollSales) employee).setSaleCommission(userDoubleInput);
             }
         }
+        System.out.println("What was this years bonus?");
+        userDoubleInput = scanner.nextDouble();
+        roster.setBonusAmount(userDoubleInput);
     }
 
 }

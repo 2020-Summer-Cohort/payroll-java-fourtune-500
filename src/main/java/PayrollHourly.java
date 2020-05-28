@@ -6,6 +6,7 @@ public class PayrollHourly extends PayrollEmployee {
 
     int hoursWorked;
     double hourlyRate = 20.00;
+    boolean hazard;
 
 
     public int getHoursWorked() {
@@ -22,6 +23,13 @@ public class PayrollHourly extends PayrollEmployee {
 
     @Override
     public void setPaycheckTotal(){
-        payCheckTotal = hourlyRate * hoursWorked;
+        if(hazard == true){
+            payCheckTotal = (hourlyRate * hoursWorked)*2;
+        }else {
+            payCheckTotal = hourlyRate * hoursWorked;
+        }
+    }
+    public void setHazardPay(boolean hazardPay){
+        hazard = hazardPay;
     }
 }

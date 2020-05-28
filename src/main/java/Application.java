@@ -28,14 +28,19 @@ public class Application {
     public static void obtainUserInput(CompanyRoster roster, Scanner scanner) {
         int userInput;
         double userDoubleInput;
+        boolean hazardInput;
         System.out.println("What is the sales commission?");
         userDoubleInput = scanner.nextDouble();
+        System.out.println("Did they make hazard pay?");
+        hazardInput = scanner.nextBoolean();
+
         for(PayrollEmployee employee : roster.getEmployeeList()){
             if (employee instanceof PayrollHourly) {
                 System.out.println("How many hours did " + employee.getFirstName() + " work?");
                 userInput = scanner.nextInt();
                 scanner.nextLine();
                 ((PayrollHourly) employee).setHoursWorked(userInput);
+                ((PayrollHourly) employee).setHazardPay(hazardInput);
             }
             if(employee instanceof PayrollSales){
                 ((PayrollSales) employee).setSaleCommission(userDoubleInput);
@@ -45,5 +50,4 @@ public class Application {
         userDoubleInput = scanner.nextDouble();
         roster.setBonusAmount(userDoubleInput);
     }
-
 }

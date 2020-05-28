@@ -1,9 +1,9 @@
 public abstract class PayrollEmployee {
 
-    int employeeId;
-    String firstName;
-    String lastName;
-    double payCheckTotal;
+    private int employeeId;
+    private String firstName;
+    private String lastName;
+    protected double payCheckTotal;
 
     public PayrollEmployee(int employeeId, String firstName, String lastName){
        this.employeeId = employeeId;

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class CompanyRoster {
 
@@ -13,6 +14,9 @@ public class CompanyRoster {
     PayrollEmployee hourly1 = new PayrollHourly(4111, "Juanice", "Cuyahoga");
     PayrollEmployee hourly2 = new PayrollHourly(4112, "James", "Smith");
 
+    public ArrayList<PayrollEmployee> getEmployeeList(){
+        return companyRoster;
+    }
     public void createEmployee(){
         companyRoster.add(executive1);
         companyRoster.add(developer1);
